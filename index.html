@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Giraldilla Hanley — Cocina Cubana en Tampa</title>
+<meta name="description" content="La Giraldilla Hanley: auténtica cocina cubana en Tampa, FL. Ropa vieja, lechón asado, paella, pizza cubana, mojitos y música en vivo.">
+<style>
+:root{
+  --paper:#faf3e6; --paper2:#f3e8d2; --ink:#2e1f16; --ink2:#5a4632;
+  --red:#b03a2e; --red-d:#8c2b21; --terra:#c96f2e; --gold:#d9a441; --palm:#3f6b4f;
+  --line:#e0d0ae;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Arial Narrow','Helvetica Neue',Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* ribbon */
+.ribbon{background:var(--ink);color:var(--paper);text-align:center;font-family:'Arial Narrow',Arial,sans-serif;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;padding:9px 12px}
+.ribbon b{color:var(--gold)}
+.ribbon a{color:var(--paper);text-decoration:none}
+/* header */
+header{background:var(--paper);border-bottom:3px double var(--line);position:sticky;top:0;z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:1120px;margin:0 auto;gap:12px;flex-wrap:wrap}
+.brand{text-decoration:none;color:var(--ink);line-height:1.1}
+.brand .display{font-size:26px;color:var(--red);letter-spacing:3px}
+.brand small{display:block;font-family:Georgia,serif;font-size:11px;letter-spacing:4px;color:var(--ink2);text-transform:uppercase}
+.nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.nav-links a{font-family:'Arial Narrow',Arial,sans-serif;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.nav-links a:hover{color:var(--red)}
+.lang{display:flex;border:2px solid var(--ink);border-radius:20px;overflow:hidden}
+.lang button{border:0;background:transparent;padding:5px 12px;font-family:'Arial Narrow',Arial,sans-serif;font-weight:700;cursor:pointer;font-size:13px;color:var(--ink)}
+.lang button.on{background:var(--ink);color:var(--paper)}
+/* hero */
+.hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(rgba(30,15,8,.55),rgba(30,15,8,.72))}
+.hero .inner{position:relative;z-index:2;padding:70px 20px;max-width:900px}
+.kicker{display:inline-block;border:2px solid var(--gold);color:var(--gold);font-family:'Arial Narrow',Arial,sans-serif;letter-spacing:4px;font-size:14px;text-transform:uppercase;padding:7px 20px;border-radius:30px;margin-bottom:22px}
+.hero h1{font-size:clamp(44px,8vw,96px);line-height:1.02;letter-spacing:4px;text-shadow:0 3px 18px rgba(0,0,0,.5)}
+.hero h1 .y{color:var(--gold)}
+.hero p.sub{font-size:clamp(17px,2.4vw,22px);margin:18px auto 30px;max-width:640px;font-style:italic;color:#f5e9d2}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{font-family:'Arial Narrow',Arial,sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:15px 34px;border-radius:40px;font-size:16px;display:inline-block}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-d)}
+.btn-ghost{border:2px solid #fff;color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.stars{color:var(--gold);letter-spacing:6px;margin-top:26px;font-size:15px}
+/* ticker */
+.ticker{background:var(--red);color:var(--paper);overflow:hidden;white-space:nowrap;padding:12px 0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.ticker span{font-family:'Arial Narrow',Arial,sans-serif;font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:16px;padding:0 18px}
+/* sections */
+section{padding:70px 0}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head .kick{font-family:'Arial Narrow',Arial,sans-serif;letter-spacing:5px;color:var(--red);font-size:14px;text-transform:uppercase}
+.sec-head h2{font-size:clamp(30px,4.5vw,46px);margin:8px 0 10px;letter-spacing:3px}
+.rule{width:120px;height:4px;background:var(--gold);margin:0 auto;border-radius:2px}
+/* favorites */
+.favs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.fav{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 22px rgba(80,50,20,.10)}
+.fav img{width:100%;height:190px;object-fit:cover;display:block}
+.fav .body{padding:20px}
+.fav h3{font-size:19px;letter-spacing:1.5px;color:var(--red);margin-bottom:6px}
+.fav p{font-size:14.5px;color:var(--ink2);font-style:italic}
+.fav .price{font-family:'Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;color:var(--palm);margin-top:10px}
+/* menu tabs */
+#menu{background:var(--paper2);border-top:3px double var(--line);border-bottom:3px double var(--line)}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.tabs button{font-family:'Arial Narrow',Arial,sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:14px;padding:10px 20px;border:2px solid var(--ink);background:transparent;border-radius:30px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);color:var(--paper)}
+.dishes{max-width:860px;margin:0 auto}
+.dish{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 4px;border-bottom:1px dotted var(--ink2)}
+.dish .nm{font-weight:700;font-size:17px}
+.dish .nm small{display:block;font-weight:400;font-style:italic;font-size:13.5px;color:var(--ink2)}
+.dish .pr{font-family:'Arial Narrow',Arial,sans-serif;font-weight:800;font-size:19px;color:var(--red);white-space:nowrap}
+.note{text-align:center;margin-top:26px;font-style:italic;color:var(--ink2);font-size:14px}
+/* night */
+#noche{background:var(--ink);color:var(--paper)}
+#noche .sec-head .kick{color:var(--gold)}
+#noche .sec-head h2{color:var(--paper)}
+.night-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.night-grid img{width:100%;border-radius:14px;border:3px solid var(--gold)}
+.night-list{list-style:none;margin-top:20px}
+.night-list li{padding:12px 0;border-bottom:1px solid rgba(250,243,230,.18);font-size:17px}
+.night-list li b{color:var(--gold);font-family:'Arial Narrow',Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;margin-right:10px}
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-grid img{width:100%;border-radius:14px}
+.loc-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-top:18px}
+.loc-card h3{color:var(--red);font-size:18px;letter-spacing:1.5px;margin-bottom:6px}
+.loc-card p{font-size:15px;color:var(--ink2)}
+/* visit */
+#visitanos{background:var(--paper2);border-top:3px double var(--line)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.hours{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}
+.hours td{padding:12px 18px;border-bottom:1px solid var(--line);font-size:16px}
+.hours tr:last-child td{border-bottom:0}
+.hours td:last-child{text-align:right;font-family:'Arial Narrow',Arial,sans-serif;font-weight:700;letter-spacing:1px}
+.info-card{background:var(--ink);color:var(--paper);border-radius:12px;padding:30px}
+.info-card h3{color:var(--gold);letter-spacing:2px;margin-bottom:14px;font-size:20px}
+.info-card p{margin:10px 0;font-size:16px}
+.info-card a{color:var(--paper)}
+.big-tel{font-family:'Arial Narrow',Arial,sans-serif;font-size:30px;font-weight:800;letter-spacing:2px;color:var(--gold);text-decoration:none}
+/* footer */
+footer{background:var(--ink);color:#cbbfa8;text-align:center;padding:34px 20px;font-size:14px;border-top:3px solid var(--gold)}
+footer .display{color:var(--paper);letter-spacing:3px;font-size:20px;margin-bottom:8px}
+/* floating call */
+.call-fab{position:fixed;right:18px;bottom:18px;background:var(--red);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:26px;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:60}
+@media(max-width:760px){.night-grid,.about-grid,.visit-grid{grid-template-columns:1fr}.hero{min-height:64vh}}
+</style>
+</head>
+<body>
+
+<div class="ribbon" data-es="★ Música en vivo ★ Viernes y sábado hasta las 3AM — <a href='tel:+18138868777'>(813) 886-8777</a>" data-en="★ Live music ★ Friday &amp; Saturday until 3AM — <a href='tel:+18138868777'>(813) 886-8777</a>">★ Música en vivo ★ Viernes y sábado hasta las 3AM — <a href="tel:+18138868777">(813) 886-8777</a></div>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#"><span class="display">La Giraldilla</span><small data-es="Cocina cubana · Tampa" data-en="Cuban kitchen · Tampa">Cocina cubana · Tampa</small></a>
+    <div class="nav-links">
+      <a href="#favoritos" data-es="Favoritos" data-en="Favorites">Favoritos</a>
+      <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+      <a href="#noche" data-es="De noche" data-en="Nights">De noche</a>
+      <a href="#visitanos" data-es="Visítanos" data-en="Visit">Visítanos</a>
+      <div class="lang"><button id="btn-es" class="on">ES</button><button id="btn-en">EN</button></div>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="bg" src="imgs/hero.webp" alt="Salón de La Giraldilla">
+  <div class="shade"></div>
+  <div class="inner">
+    <span class="kicker" data-es="Hanley Rd · Tampa, FL" data-en="Hanley Rd · Tampa, FL">Hanley Rd · Tampa, FL</span>
+    <h1 data-es="El sabor de <span class='y'>Cuba</span> en Tampa" data-en="The taste of <span class='y'>Cuba</span> in Tampa">El sabor de <span class="y">Cuba</span> en Tampa</h1>
+    <p class="sub" data-es="Ropa vieja, lechón asado, paella y la famosa pizza cubana — con mojitos, música en vivo y ambiente de fiesta hasta la madrugada." data-en="Ropa vieja, roast pork, paella and the famous Cuban pizza — with mojitos, live music and a party vibe late into the night.">Ropa vieja, lechón asado, paella y la famosa pizza cubana — con mojitos, música en vivo y ambiente de fiesta hasta la madrugada.</p>
+    <div class="cta-row">
+      <a class="btn btn-red" href="#menu" data-es="Ver el menú" data-en="See the menu">Ver el menú</a>
+      <a class="btn btn-ghost" href="tel:+18138868777" data-es="Llamar: (813) 886-8777" data-en="Call: (813) 886-8777">Llamar: (813) 886-8777</a>
+    </div>
+    <div class="stars">★★★★☆ · <span data-es="1,731 reseñas en Google" data-en="1,731 Google reviews">1,731 reseñas en Google</span></div>
+  </div>
+</section>
+
+<div class="ticker"><span data-es="★ Ropa vieja ★ Lechón asado ★ Paella Giraldilla ★ Pizza cubana ★ Mojitos ★ Música en vivo ★ Abierto hasta las 3AM ★" data-en="★ Ropa vieja ★ Roast pork ★ Paella Giraldilla ★ Cuban pizza ★ Mojitos ★ Live music ★ Open until 3AM ★">★ Ropa vieja ★ Lechón asado ★ Paella Giraldilla ★ Pizza cubana ★ Mojitos ★ Música en vivo ★ Abierto hasta las 3AM ★</span></div>
+
+<section id="favoritos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick" data-es="Los que todos piden" data-en="Everyone's favorites">Los que todos piden</div>
+      <h2 data-es="Favoritos de la casa" data-en="House favorites">Favoritos de la casa</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="favs">
+      <div class="fav">
+        <img src="imgs/ropa-vieja.webp" alt="Ropa vieja">
+        <div class="body">
+          <h3 data-es="Ropa vieja" data-en="Ropa vieja">Ropa vieja</h3>
+          <p data-es="La clásica: carne deshebrada en sofrito cubano, con arroz, frijoles y maduros." data-en="The classic: shredded beef in Cuban sofrito, with rice, beans and sweet plantains.">La clásica: carne deshebrada en sofrito cubano, con arroz, frijoles y maduros.</p>
+          <div class="price">$10.75</div>
+        </div>
+      </div>
+      <div class="fav">
+        <img src="imgs/pizza-cubana.webp" alt="Pizza cubana">
+        <div class="body">
+          <h3 data-es="Pizza cubana" data-en="Cuban pizza">Pizza cubana</h3>
+          <p data-es="La famosa: masa gruesa y esponjosa al estilo cubano. Dicen que es la mejor de Tampa." data-en="The famous one: thick, fluffy Cuban-style crust. They say it's the best in Tampa.">La famosa: masa gruesa y esponjosa al estilo cubano. Dicen que es la mejor de Tampa.</p>
+          <div class="price" data-es="Desde $6.50" data-en="From $6.50">Desde $6.50</div>
+        </div>
+      </div>
+      <div class="fav">
+        <img src="imgs/hero.webp" alt="Paella Giraldilla">
+        <div class="body">
+          <h3 data-es="Paella Giraldilla" data-en="Paella Giraldilla">Paella Giraldilla</h3>
+          <p data-es="De la casa: langosta, camarones, mejillones, almejas, pollo y arroz. Para dos." data-en="House specialty: lobster, shrimp, mussels, clams, chicken and rice. Serves two.">De la casa: langosta, camarones, mejillones, almejas, pollo y arroz. Para dos.</p>
+          <div class="price">$52.95</div>
+        </div>
+      </div>
+      <div class="fav">
+        <img src="imgs/mojitos.webp" alt="Mojitos">
+        <div class="body">
+          <h3 data-es="Lechón asado" data-en="Roast pork">Lechón asado</h3>
+          <p data-es="Puerco asado al estilo cubano, jugoso y con mojo. El favorito de los domingos." data-en="Cuban-style roast pork, juicy with mojo. The Sunday favorite.">Puerco asado al estilo cubano, jugoso y con mojo. El favorito de los domingos.</p>
+          <div class="price">$7.99</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick" data-es="Precios reales" data-en="Real prices">Precios reales</div>
+      <h2 data-es="Nuestro menú" data-en="Our menu">Nuestro menú</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tabs" id="menu-tabs"></div>
+    <div class="dishes" id="menu-dishes"></div>
+    <p class="note" data-es="Precios tomados del menú del restaurante (octubre 2026). Pueden variar — confirma al ordenar." data-en="Prices taken from the restaurant's menu (October 2026). They may vary — please confirm when ordering.">Precios tomados del menú del restaurante (octubre 2026). Pueden variar — confirma al ordenar.</p>
+  </div>
+</section>
+
+<section id="noche">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick" data-es="Cuando cae el sol" data-en="When the sun goes down">Cuando cae el sol</div>
+      <h2 data-es="La noche Giraldilla" data-en="The Giraldilla night">La noche Giraldilla</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="night-grid">
+      <img src="imgs/mojitos.webp" alt="Mojitos y música en vivo">
+      <div>
+        <p style="font-size:18px;font-style:italic" data-es="Aquí no solo se viene a comer: viernes y sábado la casa se prende hasta las 3 de la mañana." data-en="Here you don't just come to eat: Friday and Saturday the house lights up until 3 in the morning.">Aquí no solo se viene a comer: viernes y sábado la casa se prende hasta las 3 de la mañana.</p>
+        <ul class="night-list">
+          <li><b data-es="Música" data-en="Music">Música</b><span data-es="Música en vivo y ambiente latino" data-en="Live music and Latin vibes">Música en vivo y ambiente latino</span></li>
+          <li><b data-es="Bar" data-en="Bar">Bar</b><span data-es="Mojitos, sangría y grandes cócteles" data-en="Mojitos, sangria and great cocktails">Mojitos, sangría y grandes cócteles</span></li>
+          <li><b data-es="Hookah" data-en="Hookah">Hookah</b><span data-es="Mencionada por nuestros clientes" data-en="Loved by our guests">Mencionada por nuestros clientes</span></li>
+          <li><b data-es="Horario" data-en="Hours">Horario</b><span data-es="Vie y sáb hasta las 3AM" data-en="Fri & Sat until 3AM">Vie y sáb hasta las 3AM</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick" data-es="Nuestra historia" data-en="Our story">Nuestra historia</div>
+      <h2 data-es="Cuba en cada plato" data-en="Cuba in every plate">Cuba en cada plato</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p style="font-size:18px" data-es="La Giraldilla es cocina cubana casera en Tampa: sazón de verdad, porciones generosas y ese ambiente familiar donde todos se sienten en casa. De día, el almuerzo criollo; de noche, la fiesta latina." data-en="La Giraldilla is homestyle Cuban cooking in Tampa: real sazón, generous portions and that family atmosphere where everyone feels at home. By day, the criollo lunch; by night, the Latin party.">La Giraldilla es cocina cubana casera en Tampa: sazón de verdad, porciones generosas y ese ambiente familiar donde todos se sienten en casa. De día, el almuerzo criollo; de noche, la fiesta latina.</p>
+        <div class="loc-card">
+          <h3 data-es="Dos locales en Tampa" data-en="Two Tampa locations">Dos locales en Tampa</h3>
+          <p><b>Hanley:</b> 8218 Hanley Rd, Tampa, FL 33634 · (813) 886-8777</p>
+          <p><b>Hillsborough:</b> 1003 W Hillsborough Ave, Tampa, FL · (813) 644-7076</p>
+        </div>
+      </div>
+      <img src="imgs/pizza-cubana.webp" alt="Pizza cubana de La Giraldilla">
+    </div>
+  </div>
+</section>
+
+<section id="visitanos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick" data-es="Te esperamos" data-en="We're waiting">Te esperamos</div>
+      <h2 data-es="Visítanos" data-en="Visit us">Visítanos</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="visit-grid">
+      <div>
+        <table class="hours">
+          <tr><td data-es="Lunes – Jueves" data-en="Monday – Thursday">Lunes – Jueves</td><td>11AM – 10PM</td></tr>
+          <tr><td data-es="Viernes – Sábado" data-en="Friday – Saturday">Viernes – Sábado</td><td>11AM – 3AM</td></tr>
+          <tr><td data-es="Domingo" data-en="Sunday">Domingo</td><td>11AM – 12AM</td></tr>
+        </table>
+      </div>
+      <div class="info-card">
+        <h3 class="display">La Giraldilla Hanley</h3>
+        <p>8218 Hanley Rd<br>Tampa, FL 33634</p>
+        <p><a class="big-tel" href="tel:+18138868777">(813) 886-8777</a></p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=La+Giraldilla+Hanley+8218+Hanley+Rd+Tampa+FL+33634" target="_blank" rel="noopener" data-es="Cómo llegar →" data-en="Get directions →">Cómo llegar →</a></p>
+        <p style="margin-top:14px"><span data-es="Síguenos:" data-en="Follow us:">Síguenos:</span> <a href="https://www.instagram.com/lagiraldillatampa/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/100063591397850" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="display">La Giraldilla</div>
+  <p data-es="Cocina cubana · 8218 Hanley Rd, Tampa, FL 33634 · (813) 886-8777" data-en="Cuban kitchen · 8218 Hanley Rd, Tampa, FL 33634 · (813) 886-8777">Cocina cubana · 8218 Hanley Rd, Tampa, FL 33634 · (813) 886-8777</p>
+  <p style="margin-top:8px;font-size:12px" data-es="Demo conceptual — precios de octubre 2026, pueden variar." data-en="Concept demo — October 2026 prices, may vary.">Demo conceptual — precios de octubre 2026, pueden variar.</p>
+</footer>
+
+<a class="call-fab" href="tel:+18138868777" aria-label="Llamar">✆</a>
+
+<script>
+const MENU=[
+ {es:"Especiales de la casa",en:"House specials",items:[
+  ["Paella Giraldilla","Paella de la casa: langosta, camarones, mejillones, almejas, pollo y arroz (para 2)","House paella: lobster, shrimp, mussels, clams, chicken and rice (serves 2)","$52.95"],
+  ["Delicias del Mar","Cola de langosta, filete de pescado y camarones","Lobster tail, fish fillet and shrimp","$49.75"],
+  ["Mar y Tierra","Bistec a la parrilla con cola de langosta y camarones","Grilled steak with lobster tail and shrimp","$38.75"],
+  ["Paella para 2","Paella para dos personas","Paella for two","$28.50"],
+  ["Arroz Frito Especial","Arroz frito especial: jamón, pollo, camarones","Special fried rice: ham, chicken, shrimp","$16.99"],
+  ["Arroz Frito","Arroz frito","Fried rice","$10.99"]]},
+ {es:"Carnes",en:"Meats",items:[
+  ["Bistec Salteado Especial","Bistec salteado especial","Special sautéed steak","$15.95"],
+  ["Bistec Salteado","Bistec salteado","Sautéed steak","$12.95"],
+  ["Milanesa de Res","Milanesa de res","Breaded beef steak","$12.25"],
+  ["Vaca Frita","Carne deshebrada con cebolla y mojo cubano","Shredded beef with onions and Cuban mojo","$10.99"],
+  ["Ropa Vieja","Carne deshebrada a la criolla","Creole shredded beef","$10.75"],
+  ["Bistec Empanizado","Bistec empanizado","Breaded steak","$10.50"],
+  ["Bistec de Palomilla","Bistec de palomilla","Palomilla steak","$9.75"],
+  ["Picadillo Habanero","Picadillo a la habanera","Havana-style ground beef","$7.99"],
+  ["Uruguayo","Bistec estilo uruguayo","Uruguayan-style steak","$11.99"]]},
+ {es:"Puerco",en:"Pork",items:[
+  ["Chuleta Kan Kan","Chuleta Kan Kan","Kan Kan pork chop","$14.99"],
+  ["Lomo Ahumado","Lomo ahumado","Smoked pork loin","$12.99"],
+  ["Cordero en Salsa","Cordero en salsa criolla cubana","Lamb in Cuban criolla sauce","$10.99"],
+  ["Puerco Empanizado","Puerco empanizado","Breaded pork","$8.99"],
+  ["Puerco a la Plancha","Puerco a la plancha","Grilled pork","$7.99"],
+  ["Lechón Asado","Lechón asado al estilo cubano","Cuban roast pork","$7.99"],
+  ["Masitas Fritas","Masitas de puerco fritas","Fried pork chunks","$7.99"]]},
+ {es:"Mariscos",en:"Seafood",items:[
+  ["Pargo Rojo Frito","Pargo rojo frito entero","Fried red snapper","$20.99"],
+  ["Salmón","Salmón","Salmon","$17.99"],
+  ["Mahi Mahi","Mahi mahi","Mahi mahi","$17.25"],
+  ["Camarones al Ajillo","Camarones al ajillo","Shrimp scampi","$14.99"],
+  ["Rueda de Serrucho","Rueda de serrucho","Sierra mackerel wheel","$10.99"],
+  ["Pescado Canciller","Pescado canciller","Canciller fish","$10.99"],
+  ["Cazuela de Mariscos","Cazuela de mariscos","Seafood casserole","$10.75"]]},
+ {es:"Ensaladas y aperitivos",en:"Salads & appetizers",items:[
+  ["Tostones Rellenos","Tostones rellenos","Stuffed tostones","$8.50"],
+  ["Camarones Fritos","Aperitivo de camarones fritos","Fried shrimp appetizer","$8.50"],
+  ["Alitas de Pollo","Alitas de pollo","Chicken wings","$8.50"],
+  ["Ensalada Giraldilla","Ensalada de la casa Giraldilla","House Giraldilla salad","$4.50"],
+  ["Ensalada César","Ensalada César","Caesar salad","$3.99"],
+  ["Ensalada de la Casa","Ensalada de la casa","House salad","$2.99"]]},
+ {es:"Pizzas",en:"Pizzas",items:[
+  ["Pizza Cubana","Masa gruesa y esponjosa al estilo cubano — la famosa de Tampa","Thick fluffy Cuban-style crust — Tampa's famous one","Preguntar"],
+  ["Ingredientes clásicos","Pimiento, cebolla, aceituna, jalapeños, chorizo, hawaiana","Pepper, onion, olive, jalapeños, chorizo, Hawaiian","$6.50"],
+  ["Atún / Peperoni","Atún / peperoni","Tuna / pepperoni","$6.75"],
+  ["Camarones","Ingrediente de camarones","Shrimp topping","$9.50"]]},
+ {es:"Sándwiches",en:"Sandwiches",items:[
+  ["Sándwich de Pescado","Sándwich de pescado","Fish sandwich","$14.99"],
+  ["Sándwich Ropa Vieja","Sándwich de ropa vieja","Shredded beef sandwich","$11.99"],
+  ["Pan con Bistec","Pan con bistec","Beef steak sandwich","$8.99"],
+  ["Bistec de Puerco","Sándwich de puerco a la plancha","Grilled pork sandwich","$7.99"],
+  ["Pechuga de Pollo","Sándwich de pechuga a la plancha","Grilled chicken breast sandwich","$7.99"],
+  ["Sándwich de Lechón","Sándwich de lechón asado","Roast pork sandwich","$6.99"],
+  ["Cubano","Sándwich cubano","Cuban sandwich","$5.99"],
+  ["Medianoche","Sándwich medianoche","Medianoche sandwich","$4.99"],
+  ["Frita Cubana","Hamburguesa cubana","Cuban hamburger","$4.99"],
+  ["Croquetas","Sándwich de croquetas","Croquette sandwich","$4.99"]]},
+ {es:"Postres y bebidas",en:"Desserts & drinks",items:[
+  ["Postre Giraldilla","Pastel con helado","Cake and ice cream","$6.99"],
+  ["Crema Catalana","Crema catalana","Crème brûlée","$4.99"],
+  ["Tres Leches","Pastel de tres leches","Three-milk cake","$2.99"],
+  ["Flan de Vainilla","Flan de vainilla","Vanilla flan","$2.00"],
+  ["Batidos","Batidos de frutas","Fruit shakes","$2.99"],
+  ["Jugos Naturales","Jugos naturales","Natural juices","$2.50"],
+  ["Cortadito","Café cortadito","Cortadito coffee","$1.75"],
+  ["Café Espresso","Café espresso","Espresso","$1.50"],
+  ["Ironbeer / Jupiña / Materva","Refrescos cubanos","Cuban sodas","$1.75"]]}
+];
+let lang=localStorage.getItem('gira-lang')||'es';
+function t(es,en){return lang==='es'?es:en}
+function renderMenu(){
+  const tabs=document.getElementById('menu-tabs'),dishes=document.getElementById('menu-dishes');
+  tabs.innerHTML='';
+  MENU.forEach((c,i)=>{
+    const b=document.createElement('button');
+    b.textContent=t(c.es,c.en);
+    if(i===0)b.classList.add('on');
+    b.onclick=()=>{tabs.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');showCat(i)};
+    tabs.appendChild(b);
+  });
+  showCat(0);
+}
+function showCat(i){
+  const c=MENU[i],dishes=document.getElementById('menu-dishes');
+  dishes.innerHTML=c.items.map(it=>
+    `<div class="dish"><div class="nm">${it[0]}<small>${t(it[1],it[2])}</small></div><div class="pr">${it[3]==='Preguntar'?t('Preguntar','Ask'):it[3]}</div></div>`
+  ).join('');
+}
+function setLang(l){
+  lang=l;localStorage.setItem('gira-lang',l);
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-es]').forEach(el=>{el.innerHTML=t(el.dataset.es,el.dataset.en)});
+  document.getElementById('btn-es').classList.toggle('on',l==='es');
+  document.getElementById('btn-en').classList.toggle('on',l==='en');
+  renderMenu();
+}
+document.getElementById('btn-es').onclick=()=>setLang('es');
+document.getElementById('btn-en').onclick=()=>setLang('en');
+setLang(lang);
+</script>
+</body>
+</html>
